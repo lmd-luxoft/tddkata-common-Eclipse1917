@@ -1,0 +1,38 @@
+package tdd;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class CalcTest {
+
+    private final Calc calc = new Calc();
+
+    @Test
+    void testSumZeroNumber() {
+        int actual = calc.sum("");
+        int expected = 0;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testSumOneNumber() {
+        int actual = calc.sum("1");
+        int expected = 1;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testSumTwoNumber() {
+        int actual = calc.sum("1,2");
+        int expected = 3;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testErrorExpressionNumber() {
+        int actual = calc.sum("two");
+        int expected = -1;
+        assertEquals(actual, expected);
+    }
+}
