@@ -30,8 +30,29 @@ class CalcTest {
     }
 
     @Test
-    void testErrorExpressionNumber() {
+    void testErrorExpressionNumber_1() {
         int actual = calc.sum("two");
+        int expected = -1;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testErrorExpressionNumber_2() {
+        int actual = calc.sum("1,2,");
+        int expected = -1;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testErrorExpressionNumber_3() {
+        int actual = calc.sum("1,2,b");
+        int expected = -1;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testErrorExpressionNumber_4() {
+        int actual = calc.sum("1.2");
         int expected = -1;
         assertEquals(actual, expected);
     }
