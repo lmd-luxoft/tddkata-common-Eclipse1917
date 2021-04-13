@@ -16,16 +16,9 @@ class CalcTest {
     }
 
     @Test
-    void testSumOneNumber() {
-        int actual = calc.sum("1");
-        int expected = 1;
-        assertEquals(actual, expected);
-    }
-
-    @Test
-    void testSumTwoNumber() {
-        int actual = calc.sum("1,2");
-        int expected = 3;
+    void testSumMoreNumber() {
+        int actual = calc.sum("1,2,3,4");
+        int expected = 10;
         assertEquals(actual, expected);
     }
 
