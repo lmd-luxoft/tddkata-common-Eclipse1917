@@ -85,4 +85,34 @@ class CalcTest {
         int expected = -1;
         assertEquals(actual, expected);
     }
+
+    @Test
+    void testSumMoreNumber_4() {
+        int actual = calc.sum("//;\n1;2");
+        int expected = 3;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testErrorExpressionNumber_11() {
+        int actual = calc.sum("//;\n1,2");
+        int expected = -1;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testErrorExpressionNumber_10() {
+        int actual = calc.sum("//;\n1\n2");
+        int expected = -1;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testErrorExpressionNumber_12() {
+        int actual = calc.sum("/;\n1;2");
+        int expected = -1;
+        assertEquals(actual, expected);
+    }
+
+
 }
