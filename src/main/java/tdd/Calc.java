@@ -5,8 +5,21 @@ public class Calc {
     public int sum(String expression) {
         int result = 0;
         try {
-            long commaCount = expression.codePoints().filter(ch -> ch == ',' || ch == '\n').count();
-            String[] split = expression.split("[\n,]+");
+            Character character = null;
+            String splitVal = "[\n,]+";
+            if (expression.startsWith("//") && expression.charAt(3) == '\n') {
+                character = expression.charAt(2);
+                expression = expression.substring(4);
+                splitVal = character.toString();
+            }
+            Character finalCharacter = character;
+            long commaCount = expression.codePoints().filter(ch -> {
+                if(finalCharacter != null){
+                    return ch == finalCharacter;
+                }
+                return ch == ',' || ch == '\n' ;}).count();
+
+            String[] split = expression.split(splitVal);
             if (split.length != commaCount + 1) {
                 return -1;
             }
