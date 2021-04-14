@@ -16,11 +16,26 @@ class CalcTest {
     }
 
     @Test
-    void testSumMoreNumber() {
+    void testSumMoreNumber_1() {
         int actual = calc.sum("1,2,3,4");
         int expected = 10;
         assertEquals(actual, expected);
     }
+
+    @Test
+    void testSumMoreNumber_2() {
+        int actual = calc.sum("1\n2,3");
+        int expected = 6;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testSumMoreNumber_3() {
+        int actual = calc.sum("1\n2");
+        int expected = 3;
+        assertEquals(actual, expected);
+    }
+
 
     @Test
     void testErrorExpressionNumber_1() {
@@ -57,4 +72,17 @@ class CalcTest {
         assertEquals(actual, expected);
     }
 
+    @Test
+    void testErrorExpressionNumber_6() {
+        int actual = calc.sum("1\n");
+        int expected = -1;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    void testErrorExpressionNumber_8() {
+        int actual = calc.sum("1\n,");
+        int expected = -1;
+        assertEquals(actual, expected);
+    }
 }
