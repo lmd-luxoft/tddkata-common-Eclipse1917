@@ -3,20 +3,21 @@ package tdd;
 public class Calc {
 
     public int sum(String expression) {
-        int result  = -1;
-        if (expression.codePoints().filter(ch -> ch == ',').count() > 1){
-            return result;
-        }
+        int result = 0;
         try {
+            long commaCount = expression.codePoints().filter(ch -> ch == ',').count();
             String[] split = expression.split(",");
             if (split.length == 1) {
-                result = split[0].trim().equals("") ? 0 : Integer.parseInt(split[0]);
+                return split[0].trim().equals("") ? result : Integer.parseInt(split[0]);
+            } else if (split.length != commaCount + 1) {
+                return -1;
             }
-            if (split.length == 2) {
-                result = Integer.parseInt(split[0]) + Integer.parseInt(split[1]);
+            for (String s : split) {
+                result += Integer.parseInt(s);
             }
-        } catch (Exception ignored) {
-            //ignore
+
+        } catch (Exception e) {
+            result = -1;
         }
         return result;
     }
