@@ -52,7 +52,7 @@ class CalcTest {
 
     @Test
     void testErrorExpressionNumber_5() {
-        int actual = calc.sum("1.2");
+        int actual = calc.sum(null);
         int expected = -1;
         assertEquals(actual, expected);
     }
